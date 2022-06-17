@@ -1,5 +1,5 @@
 {% set name = "bmi-wavewatch3" %}
-{% set version = "0.1.1" %}
+{% set version = "0.2.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/csdms/bmi-wavewatch3/archive/v{{ version }}.tar.gz
-  sha256: 1ee3de05858cd76ef794b3594516c33355f503eddc31e8dcca836b6f6bbbd971
+  sha256: bf3dceafed582517b6e94e1261dcf7d0d713e0b0bdfd5ad8b1a347415637aa17
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
@@ -28,6 +28,7 @@ requirements:
     - cfgrib
     - click
     - tomli
+    - matplotlib-base
     - tqdm
     - xarray
 
@@ -47,7 +48,7 @@ test:
 
 about:
   home: https://github.com/csdms/bmi-wavewatch3
-  summary: 'WAVEWATCH III data in Python'
+  summary: WAVEWATCH III data in Python
   description: |
     The bmi_wavewatch3 Python package provides both a command line
     interface and a programming interface for downloading and working
