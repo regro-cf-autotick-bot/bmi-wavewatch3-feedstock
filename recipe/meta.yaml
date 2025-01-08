@@ -11,7 +11,7 @@ source:
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
   noarch: python
   entry_points:
     - ww3 = bmi_wavewatch3.cli:ww3
@@ -19,11 +19,11 @@ build:
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - pip
     - setuptools
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - bmipy
     - cfgrib
     - click
@@ -37,6 +37,7 @@ test:
     - bmi_wavewatch3
   requires:
     - pip
+    - python {{ python_min }}
   commands:
     - pip check
     - ww3 --version
